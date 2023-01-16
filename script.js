@@ -2,9 +2,11 @@ const bill = document.getElementById("bill-value");
 const people = document.getElementById("people");
 const custom = document.getElementById("custom-tip");
 const tip = document.querySelectorAll(".tip-btn");
+const active = document.querySelector(".buttons");
 const clearButton = document.querySelector(".reset");
 const tipPerson = document.getElementById("tip-amount");
 const totalPerson = document.getElementById("total");
+const zeroInput = document.querySelector(".zero-input");
 
 let billValue = 0;
 let peopleValue = 0;
@@ -45,6 +47,20 @@ function calcTip() {
         console.log(tipAmount);
         tipPerson.innerHTML = `$${tipAmount.toFixed(2)}`;
     }
+    if (peopleValue <= 1) {
+        people.style.border = "2px solid red";
+        zeroInput.style.display = "inline-block";
+    } else if (peopleValue >= 1) {
+        people.style.border = "2px solid var(--primary-color";
+        zeroInput.style.display = "none";
+    }
+    if (billValue <= 1) {
+        bill.style.border = "2px solid red";
+        zeroInput.style.display = "inline-block";
+    } else if (billValue >= 1) {
+        bill.style.border = "2px solid var(--primary-color";
+    }
+
 }
 
 //tip buttons
@@ -53,6 +69,7 @@ function output() {
     console.log(tipValue)
     custom.value = '';
     customTip = 0;
+
     calcTip();
     return tipValue;
 }
@@ -60,6 +77,7 @@ function output() {
 tip.forEach(el => {
     el.addEventListener("click", output, true);
 })
+
 
 //clear button
 
@@ -73,6 +91,9 @@ clearButton.addEventListener('click', () => {
     tipValue = 0;
     tipPerson.innerHTML = '$0.00';
     totalPerson.innerHTML = '$0.00';
+    bill.style.border = "none";
+    people.style.border = "none";
+    zeroInput.style.display = "none";
 })
 
 
