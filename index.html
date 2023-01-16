@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script src="./script.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
 </head>
 
@@ -23,25 +24,25 @@
       <div class="bill">
         <h1>Bill</h1>
         <img src="./images/icon-dollar.svg" alt="">
-        <input type="text" class="number-input" placeholder="0" />
+        <input type="text" id="bill-value" class="number-input" placeholder="0" required />
       </div>
       <div class="select-tip">
         <h1>Select Tip %</h1>
         <div class="buttons">
-          <button class="tip-btn">5%</button>
-          <button class="tip-btn">10%</button>
-          <button class="tip-btn">15%</button>
-          <button class="tip-btn">25%</button>
-          <button class="tip-btn">50%</button>
+          <button class="tip-btn" value="0.05">5%</button>
+          <button class="tip-btn" value="0.1">10%</button>
+          <button class="tip-btn" value="0.15">15%</button>
+          <button class="tip-btn" value="0.25">25%</button>
+          <button class="tip-btn" value="0.5">50%</button>
           <div class="custom">
-            <input type="text" class="custom-tip" placeholder="Custom" />
+            <input type="text" class="custom-tip" id="custom-tip" placeholder="Custom" required />
           </div>
         </div>
       </div>
       <div class="people-number">
         <h1>Number of People</h1>
         <img src="./images/icon-person.svg" alt="">
-        <input type="text" class="number-input" placeholder="0" />
+        <input type="text" id="people" class="number-input" placeholder="0" />
       </div>
     </div>
     <div class="result">
@@ -51,14 +52,14 @@
             <h1>Tip Amount</h1>
             <h2> / person</h2>
           </span>
-          <span class="value" class="tip-amount">$0.00</span>
+          <span class="value" id="tip-amount">$0.00</span>
         </div>
         <div class="result-container">
           <span>
             <h1>Total</h1>
             <h2> / person</h2>
           </span>
-          <span class="value" class="total">$0.00</span>
+          <span class="value" id="total">$0.00</span>
         </div>
       </div>
       <button class="reset">RESET</button>
